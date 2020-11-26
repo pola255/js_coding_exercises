@@ -49,7 +49,7 @@ function reverseWord(word) {
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
   let new_words = []
-  words.forEach(function (item, index) {
+  words.forEach(function (item) {
     new_words.push(reverseWord(item))
   });
   return new_words
@@ -70,7 +70,7 @@ function countLinuxUsers(users) {
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
   let sum = 0
-  scores.forEach(function(number, index){
+  scores.forEach(function(number){
     sum = sum + number
   });
   return parseFloat((sum / scores.length).toFixed(2))
