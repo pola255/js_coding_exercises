@@ -6,7 +6,7 @@ function capitalize(word) {
 function generateInitials(firstName, lastName) {
   if (firstName === undefined) throw new Error("firstName is required");
   if (lastName === undefined) throw new Error("lastName is required");
-  if (firstName !== "" && lastName !== ""){
+  if (firstName !== "" && lastName !== "") {
     return firstName.split("")[0] + '.' + lastName.split("")[0]
   }
   return ""
@@ -30,14 +30,13 @@ function getMiddleCharacter(str) {
   let n = str.length
   let m = Math.floor(n / 2)
   let text = str.split("")
-  console.log(text)
   if (n % 2 == 0) {
-    return text[m-1] + text[m]
+    return text[m - 1] + text[m]
   } else {
     return text[m]
   }
-    
- 
+
+
 
 }
 
@@ -59,8 +58,8 @@ function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
   let count = 0
   for (let user of users) {
-    if (user.type == 'Linux'){
-      count ++
+    if (user.type == 'Linux') {
+      count++
 
     }
   }
@@ -70,22 +69,22 @@ function countLinuxUsers(users) {
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
   let sum = 0
-  scores.forEach(function(number){
+  scores.forEach(function (number) {
     sum = sum + number
   });
   return parseFloat((sum / scores.length).toFixed(2))
- 
+
 }
 
 function simpleFizzBuzz(n) {
   if (n === undefined) throw new Error("n is required");
-  if (n % 3 == 0 && n % 5 == 0){
+  if (n % 3 == 0 && n % 5 == 0) {
     return "fizzbuzz"
-    }
-  if (n % 3 == 0){
+  }
+  if (n % 3 == 0) {
     return "fizz"
   }
-  if (n % 5 == 0){
+  if (n % 5 == 0) {
     return "buzz"
   }
   return n

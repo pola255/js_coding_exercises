@@ -11,7 +11,7 @@ function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
   let text = ""
   words.forEach((word, index) => {
-    if (index !== 0){
+    if (index !== 0) {
       word = capitalize(word)
     }
     text = text + word

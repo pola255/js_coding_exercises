@@ -4,6 +4,15 @@
  */
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
+  let m = n
+  let sum = 0
+  let digit = 0
+  while (m > 0) {
+    digit = m % 10
+    sum = sum + digit
+    m = Math.floor(m / 10)
+  }
+  return sum
 };
 
 /**
@@ -17,6 +26,11 @@ const sumDigits = n => {
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
+  let range = []
+  for (let i = start; i <= end; i = i + step) {
+    range.push(i)
+  }
+  return range
 };
 
 /**
@@ -51,6 +65,25 @@ const createRange = (start, end, step) => {
 const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+  let user_arr = []
+  users.forEach(user => {
+    user.screenTime.forEach(time => {
+      let sum = 0
+      if (time.date === date) {
+        sum = Object.values(time.usage).reduce((a, b) => a + b)
+
+      }
+      if (sum >= 100) {
+        user_arr.push(user.username)
+      }
+
+
+    }
+    )
+
+  });
+  return user_arr
+
 };
 
 /**
@@ -65,6 +98,12 @@ const getScreentimeAlertList = (users, date) => {
  */
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
+  let red = parseInt(hexStr[1] + hexStr[2], 16)
+  let green = parseInt(hexStr[3] + hexStr[4], 16)
+  let blue = parseInt(hexStr[5] + hexStr[6], 16)
+
+  return `rgb(${red},${green},${blue})`;
+
 };
 
 /**
@@ -79,6 +118,38 @@ const hexToRGB = hexStr => {
  */
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
+  let winner = null;
+
+  board.forEach((row) => {
+    if (row.every((val, i, arr) => val === arr[0])) {
+      winner = row[0]
+    }
+  });
+
+  if (board[0][0] === board[1][0] && board[0][0] === board[2][0]) {
+    return board[0][0]
+
+  }
+  if (board[0][1] === board[1][1] && board[0][1] === board[2][1]) {
+    return board[0][1]
+
+  }
+  if (board[0][2] === board[1][2] && board[0][2] === board[2][2]) {
+    return board[0][2]
+
+  }
+  if (board[0][0] === board[1][1] && board[0][0] === board[2][2]) {
+    return board[0][0]
+
+  }
+  if (board[0][2] === board[1][1] && board[0][2] === board[2][0]) {
+    return board[0][2]
+
+  }
+
+
+  return winner
+
 };
 
 module.exports = {

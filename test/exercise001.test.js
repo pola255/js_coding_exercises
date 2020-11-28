@@ -29,7 +29,7 @@ describe("generateInitials", () => {
     expect(generateInitials("", "Bonneville")).toBe("");
     expect(generateInitials("Frederic", "")).toBe("");
     expect(generateInitials("", "")).toBe("");
-    
+
   });
 });
 

@@ -13,13 +13,13 @@ function findNamesBeginningWith(names, char) {
 
   );
   return arr_names
-  
+
 }
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
   return findNamesBeginningWith(words, 'to ')
-  
+
 }
 
 function getIntegers(nums) {
@@ -39,8 +39,8 @@ function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
   let arr_root = nums.map((num) => parseFloat(Math.sqrt(num).toFixed(2)))
   return arr_root
-  
-  
+
+
 }
 
 function findSentencesContaining(sentences, str) {
@@ -53,10 +53,10 @@ function findSentencesContaining(sentences, str) {
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  let long_side = triangles.map((triangle) => triangle.reduce(function(a, b) {
+  let long_side = triangles.map((triangle) => triangle.reduce(function (a, b) {
     return Math.max(a, b)
-})
-)
+  })
+  )
   return long_side
 }
 

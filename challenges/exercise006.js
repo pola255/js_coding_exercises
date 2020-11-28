@@ -4,8 +4,23 @@
  * @param {Array} arr
  * @returns {Number}
  */
+
 const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
+  if (arr.length === 0) {
+    return null
+  }
+  else {
+    let sum = 0
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] % 3 == 0 || arr[i] % 5 == 0) {
+        sum = sum + arr[i]
+
+      }
+
+    }
+    return sum
+  }
 };
 
 /**
@@ -15,6 +30,8 @@ const sumMultiples = arr => {
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  let check_DNA = (character) => character === 'C' || character === 'G' || character === 'T' || character === 'A'
+  return str.split("").every(check_DNA)
 };
 
 /**
@@ -24,6 +41,23 @@ const isValidDNA = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  let arr = str.split("")
+  let complementary = arr.map(function (character) {
+    if (character === 'T') {
+      return 'A'
+    }
+    if (character === 'A') {
+      return 'T'
+    }
+    if (character === 'C') {
+      return 'G'
+    }
+    if (character === 'G') {
+      return 'C'
+    }
+
+  })
+  return complementary.join("")
 };
 
 /**
@@ -33,6 +67,18 @@ const getComplementaryDNA = str => {
  */
 const isItPrime = n => {
   if (n === undefined) throw new Error("n is required");
+  let m = n
+  let count = 0
+  while (m > 0) {
+    if (n % m === 0) {
+      count++
+    }
+    m--
+  }
+  if (count == 2) {
+    return true
+  }
+  return false
 };
 
 /**
@@ -49,7 +95,20 @@ const isItPrime = n => {
 const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
-};
+
+  return Array(n).fill(Array(n).fill(fill));
+  /*
+  let arr = []
+  
+  for (let i = 0; i < n; i++){
+    arr[i] = []
+    for(let j = 0; j < n; j++)
+      arr[i][j] = fill
+ 
+  }
+  return arr
+ */
+}
 
 /**
  * This function takes an array of staff objects in the format:
@@ -66,6 +125,16 @@ const createMatrix = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
+  let count = 0
+  staff.forEach((employee => {
+    if (employee.rota.includes(day)) {
+      count++
+    }
+  }))
+  if (count >= 3) {
+    return true
+  }
+  return false
 };
 
 module.exports = {
