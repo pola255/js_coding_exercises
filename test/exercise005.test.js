@@ -58,6 +58,7 @@ describe("reverseNumber", () => {
     expect(reverseNumber(104)).toBe(401);
     expect(reverseNumber(12345)).toBe(54321);
     expect(reverseNumber(100)).toBe(1); // No leading 0 necessary
+    expect(reverseNumber(-30)).toBe(-3);
   });
 });
 
