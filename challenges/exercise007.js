@@ -9,7 +9,7 @@ const sumDigits = n => {
   let digit = 0
   while (m > 0) {
     digit = m % 10
-    sum = sum + digit
+    sum += digit
     m = Math.floor(m / 10)
   }
   return sum
@@ -26,7 +26,7 @@ const sumDigits = n => {
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
-  let range = []
+  const range = []
   for (let i = start; i <= end; i = i + step) {
     range.push(i)
   }
@@ -65,7 +65,7 @@ const createRange = (start, end, step) => {
 const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
-  let user_arr = []
+  const user_arr = []
   users.forEach(user => {
     user.screenTime.forEach(time => {
       let sum = 0
@@ -76,8 +76,6 @@ const getScreentimeAlertList = (users, date) => {
       if (sum >= 100) {
         user_arr.push(user.username)
       }
-
-
     }
     )
 
@@ -98,9 +96,9 @@ const getScreentimeAlertList = (users, date) => {
  */
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
-  let red = parseInt(hexStr[1] + hexStr[2], 16)
-  let green = parseInt(hexStr[3] + hexStr[4], 16)
-  let blue = parseInt(hexStr[5] + hexStr[6], 16)
+  const red = parseInt(hexStr[1] + hexStr[2], 16)
+  const green = parseInt(hexStr[3] + hexStr[4], 16)
+  const blue = parseInt(hexStr[5] + hexStr[6], 16)
 
   return `rgb(${red},${green},${blue})`;
 
@@ -146,7 +144,6 @@ const findWinner = board => {
     return board[0][2]
 
   }
-
 
   return winner
 

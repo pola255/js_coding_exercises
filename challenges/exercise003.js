@@ -14,7 +14,7 @@ function camelCaseWords(words) {
     if (index !== 0) {
       word = capitalize(word)
     }
-    text = text + word
+    text += word
   });
   return text
 }

@@ -27,9 +27,9 @@ function getSalePrice(originalPrice, reduction) {
 
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
-  let n = str.length
-  let m = Math.floor(n / 2)
-  let text = str.split("")
+  const n = str.length
+  const m = Math.floor(n / 2)
+  const text = str.split("")
   if (n % 2 == 0) {
     return text[m - 1] + text[m]
   } else {
@@ -47,7 +47,7 @@ function reverseWord(word) {
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
-  let new_words = []
+  const new_words = []
   words.forEach(function (item) {
     new_words.push(reverseWord(item))
   });
@@ -57,10 +57,9 @@ function reverseAllWords(words) {
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
   let count = 0
-  for (let user of users) {
+  for (const user of users) {
     if (user.type == 'Linux') {
       count++
-
     }
   }
   return count

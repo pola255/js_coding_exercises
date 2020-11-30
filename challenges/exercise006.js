@@ -14,7 +14,7 @@ const sumMultiples = arr => {
     let sum = 0
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] % 3 == 0 || arr[i] % 5 == 0) {
-        sum = sum + arr[i]
+        sum += arr[i]
 
       }
 
@@ -41,8 +41,8 @@ const isValidDNA = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
-  let arr = str.split("")
-  let complementary = arr.map(function (character) {
+  const arr = str.split("")
+  const complementary = arr.map(function (character) {
     if (character === 'T') {
       return 'A'
     }
@@ -75,10 +75,7 @@ const isItPrime = n => {
     }
     m--
   }
-  if (count == 2) {
-    return true
-  }
-  return false
+  return count == 2
 };
 
 /**
@@ -97,17 +94,6 @@ const createMatrix = (n, fill) => {
   if (fill === undefined) throw new Error("fill is required");
 
   return Array(n).fill(Array(n).fill(fill));
-  /*
-  let arr = []
-  
-  for (let i = 0; i < n; i++){
-    arr[i] = []
-    for(let j = 0; j < n; j++)
-      arr[i][j] = fill
- 
-  }
-  return arr
- */
 }
 
 /**
@@ -131,10 +117,7 @@ const areWeCovered = (staff, day) => {
       count++
     }
   }))
-  if (count >= 3) {
-    return true
-  }
-  return false
+  return count >= 3
 };
 
 module.exports = {

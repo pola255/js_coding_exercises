@@ -14,7 +14,7 @@ const findNextNumber = (nums, n) => {
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
-  let count = {
+  const count = {
     0: 0,
     1: 0
   }
@@ -26,22 +26,22 @@ const count1sand0s = str => {
 
 const reverseNumber = n => {
   if (n === undefined) throw new Error("n is required");
-  let m = Math.abs(n)
-  let Num = parseFloat(m.toString().split('').reverse().join('')) * Math.sign(n)
-  return Num
+  const m = Math.abs(n)
+  return parseFloat(m.toString().split('').reverse().join('')) * Math.sign(n)
+  
 };
 
 const sumArrays = arrs => {
   if (arrs === undefined) throw new Error("arrs is required");
-  let sum = arrs.reduce((acc, arr) => arr.reduce(function (a, b) {
+  return arrs.reduce((acc, arr) => arr.reduce(function (a, b) {
     return a + b
   }) + acc, 0)
-  return sum
+  
 }
 
 const arrShift = arr => {
   if (arr === undefined) throw new Error("arr is required");
-  let l = arr.length
+  const l = arr.length
   if (l < 2) {
     return arr
   }
@@ -62,31 +62,25 @@ const findNeedle = (haystack, searchTerm) => {
     const element = haystack[key].toString();
     if (element.toUpperCase().includes(searchTerm))
       return true
-
-
   }
   return false
 };
 
 const getWordFrequencies = str => {
   if (str === undefined) throw new Error("str is required");
-  let m = {}
+  const wordFrecuencies = {}
   for (let word of str.split(' ')) {
-    word = word.toLowerCase().replace(",", "");
-    word = word.replace(".", "");
-    word = word.replace("!", "");
-    word = word.replace(";", "");
-    word = word.replace("?", "");
-
-
-    if (word in m) {
-      m[word]++
+    word = word.toLowerCase()
+    word = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g,"")
+   
+    if (word in wordFrecuencies) {
+      wordFrecuencies[word]++
     }
     else {
-      m[word] = 1
+      wordFrecuencies[word] = 1
     }
   }
-  return m
+  return wordFrecuencies
 };
 
 module.exports = {

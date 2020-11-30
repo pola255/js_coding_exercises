@@ -1,18 +1,12 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
-  const newArr = nums.filter((item) => item < 1
-
-  );
-  return newArr
+  return nums.filter((item) => item < 1);
 }
 
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-  let arr_names = names.filter((name) => name.startsWith(char)
-
-  );
-  return arr_names
+  return names.filter((name) => name.startsWith(char));
 
 }
 
@@ -24,40 +18,35 @@ function findVerbs(words) {
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  let arr_int = nums.filter((nums) => nums === Math.round(nums));
-  return arr_int
+  return nums.filter((num) => num === Math.round(num));
+ 
 }
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-  let cities = users.map((user) => user.data.city.displayName);
-  return cities
+  return users.map((user) => user.data.city.displayName);
 
 }
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  let arr_root = nums.map((num) => parseFloat(Math.sqrt(num).toFixed(2)))
-  return arr_root
-
-
+  return nums.map((num) => parseFloat(Math.sqrt(num).toFixed(2)))
 }
 
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
   str = str.toUpperCase()
-  let arr_sentence = sentences.filter((sentence) => sentence.toUpperCase().includes(str));
-  return arr_sentence
+  return sentences.filter((sentence) => sentence.toUpperCase().includes(str));
 }
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  let long_side = triangles.map((triangle) => triangle.reduce(function (a, b) {
+  return triangles.map((triangle) => triangle.reduce(function (a, b) {
     return Math.max(a, b)
   })
   )
-  return long_side
+
 }
 
 module.exports = {
