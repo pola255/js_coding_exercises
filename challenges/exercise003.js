@@ -4,7 +4,7 @@ const {
 
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required")
-  return nums.map(n => n * n)
+  return nums.map(num => num * num)
 }
 
 function camelCaseWords(words) {
@@ -27,7 +27,7 @@ function getTotalSubjects(people) {
 function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required")
   if (!ingredient) throw new Error("ingredient is required")
-  return menu.some(m => m.ingredients.includes(ingredient))
+  return menu.some(menuItem => menuItem.ingredients.includes(ingredient))
 }
 
 function duplicateNumbers(arr1, arr2) {

@@ -26,13 +26,13 @@ function getSalePrice(originalPrice, reduction) {
 
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required")
-  const n = str.length
-  const m = Math.floor(n / 2)
+  const strLength = str.length
+  const middleIndex = Math.floor(strLength / 2)
   const text = str.split("")
-  if (n % 2 == 0) {
-    return text[m - 1] + text[m]
+  if (strLength % 2 == 0) {
+    return text[middleIndex - 1] + text[middleIndex]
   } else {
-    return text[m]
+    return text[middleIndex]
   }
 }
 
@@ -65,7 +65,7 @@ function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required")
   let sum = 0
   scores.forEach(function (number) {
-    sum = sum + number
+    sum += number
   })
   return parseFloat((sum / scores.length).toFixed(2))
 }

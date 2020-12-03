@@ -4,13 +4,13 @@
  */
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required")
-  let m = n
+  let number = n
   let sum = 0
   let digit = 0
-  while (m > 0) {
-    digit = m % 10
+  while (number > 0) {
+    digit = number % 10
     sum += digit
-    m = Math.floor(m / 10)
+    number = Math.floor(number / 10)
   }
   return sum
 }
@@ -27,8 +27,8 @@ const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required")
   if (end === undefined) throw new Error("end is required")
   const range = []
-  for (let i = start; i <= end; i = i + step) {
-    range.push(i)
+  for (let number = start; number <= end; number = number + step) {
+    range.push(number)
   }
   return range
 }
