@@ -3,7 +3,7 @@
  * @param {Number} n
  */
 const sumDigits = n => {
-  if (n === undefined) throw new Error("n is required");
+  if (n === undefined) throw new Error("n is required")
   let m = n
   let sum = 0
   let digit = 0
@@ -13,7 +13,7 @@ const sumDigits = n => {
     m = Math.floor(m / 10)
   }
   return sum
-};
+}
 
 /**
  * This function creates a range of numbers as an array. It received a start, an end and a step. Step is the gap between numbers in the range. For example, if start = 3, end = 11 and step = 2 the resulting range would be: [3, 5, 7, 9, 11]
@@ -24,14 +24,14 @@ const sumDigits = n => {
  * @param {Number} step
  */
 const createRange = (start, end, step) => {
-  if (start === undefined) throw new Error("start is required");
-  if (end === undefined) throw new Error("end is required");
+  if (start === undefined) throw new Error("start is required")
+  if (end === undefined) throw new Error("end is required")
   const range = []
   for (let i = start; i <= end; i = i + step) {
     range.push(i)
   }
   return range
-};
+}
 
 /**
  * This function takes an array of user objects and their usage in minutes of various applications. The format of the data should be as follows:
@@ -63,26 +63,22 @@ const createRange = (start, end, step) => {
  * @param {Array} users
  */
 const getScreentimeAlertList = (users, date) => {
-  if (users === undefined) throw new Error("users is required");
-  if (date === undefined) throw new Error("date is required");
+  if (users === undefined) throw new Error("users is required")
+  if (date === undefined) throw new Error("date is required")
   const user_arr = []
   users.forEach(user => {
     user.screenTime.forEach(time => {
       let sum = 0
       if (time.date === date) {
         sum = Object.values(time.usage).reduce((a, b) => a + b)
-
       }
       if (sum >= 100) {
         user_arr.push(user.username)
       }
-    }
-    )
-
-  });
+    })
+  })
   return user_arr
-
-};
+}
 
 /**
  * This function will receive a hexadecimal color code in the format #FF1133. A hexadecimal code is a number written in hexadecimal notation, i.e. base 16. If you want to know more about hexadecimal notation:
@@ -95,14 +91,12 @@ const getScreentimeAlertList = (users, date) => {
  * @param {String} str
  */
 const hexToRGB = hexStr => {
-  if (hexStr === undefined) throw new Error("hexStr is required");
+  if (hexStr === undefined) throw new Error("hexStr is required")
   const red = parseInt(hexStr[1] + hexStr[2], 16)
   const green = parseInt(hexStr[3] + hexStr[4], 16)
   const blue = parseInt(hexStr[5] + hexStr[6], 16)
-
-  return `rgb(${red},${green},${blue})`;
-
-};
+  return `rgb(${red},${green},${blue})`
+}
 
 /**
  * This function takes a noughts and crosses board represented as an array, where an empty space is represented with null.
@@ -115,39 +109,30 @@ const hexToRGB = hexStr => {
  * @param {Array} board
  */
 const findWinner = board => {
-  if (board === undefined) throw new Error("board is required");
-  let winner = null;
-
+  if (board === undefined) throw new Error("board is required")
+  let winner = null
   board.forEach((row) => {
     if (row.every((val, i, arr) => val === arr[0])) {
       winner = row[0]
     }
-  });
-
+  })
   if (board[0][0] === board[1][0] && board[0][0] === board[2][0]) {
     return board[0][0]
-
   }
   if (board[0][1] === board[1][1] && board[0][1] === board[2][1]) {
     return board[0][1]
-
   }
   if (board[0][2] === board[1][2] && board[0][2] === board[2][2]) {
     return board[0][2]
-
   }
   if (board[0][0] === board[1][1] && board[0][0] === board[2][2]) {
     return board[0][0]
-
   }
   if (board[0][2] === board[1][1] && board[0][2] === board[2][0]) {
     return board[0][2]
-
   }
-
   return winner
-
-};
+}
 
 module.exports = {
   sumDigits,
@@ -155,4 +140,4 @@ module.exports = {
   getScreentimeAlertList,
   hexToRGB,
   findWinner
-};
+}

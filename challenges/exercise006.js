@@ -6,7 +6,7 @@
  */
 
 const sumMultiples = arr => {
-  if (arr === undefined) throw new Error("arr is required");
+  if (arr === undefined) throw new Error("arr is required")
   if (arr.length === 0) {
     return null
   }
@@ -15,13 +15,11 @@ const sumMultiples = arr => {
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] % 3 == 0 || arr[i] % 5 == 0) {
         sum += arr[i]
-
       }
-
     }
     return sum
   }
-};
+}
 
 /**
  * This function will receive a string of characters and should return true/false depending on whether it is a valid DNA string. A valid DNA string may contain characters C, G, T or A only.
@@ -29,10 +27,10 @@ const sumMultiples = arr => {
  * @returns {Boolean}
  */
 const isValidDNA = str => {
-  if (str === undefined) throw new Error("str is required");
+  if (str === undefined) throw new Error("str is required")
   let check_DNA = (character) => character === 'C' || character === 'G' || character === 'T' || character === 'A'
   return str.split("").every(check_DNA)
-};
+}
 
 /**
  * This function will receive a valid DNA string (see above) and should return a string of the complementary base pairs. In DNA, T always pairs with A, and C always pairs with G. So a string of "ACTG" would have a complementary DNA string of "TGAC".
@@ -40,7 +38,7 @@ const isValidDNA = str => {
  * @returns {String}
  */
 const getComplementaryDNA = str => {
-  if (str === undefined) throw new Error("str is required");
+  if (str === undefined) throw new Error("str is required")
   const arr = str.split("")
   const complementary = arr.map(function (character) {
     if (character === 'T') {
@@ -55,10 +53,9 @@ const getComplementaryDNA = str => {
     if (character === 'G') {
       return 'C'
     }
-
   })
   return complementary.join("")
-};
+}
 
 /**
  * This function should receive a number and return true/false depending on whether it is a prime number or not. A prime number is a number that can only be divided evenly by 1 and itself (for example, 7)
@@ -66,7 +63,7 @@ const getComplementaryDNA = str => {
  * @returns {Boolean}
  */
 const isItPrime = n => {
-  if (n === undefined) throw new Error("n is required");
+  if (n === undefined) throw new Error("n is required")
   let m = n
   let count = 0
   while (m > 0) {
@@ -76,7 +73,7 @@ const isItPrime = n => {
     m--
   }
   return count == 2
-};
+}
 
 /**
  * This function should receive a number and return an array of n arrays, each filled with n items. The parameter "fill" should be used as the filler of the arrays. For example, given parameters 3 and "foo" the resulting matrix should be:
@@ -90,10 +87,9 @@ const isItPrime = n => {
  * @returns {Array}
  */
 const createMatrix = (n, fill) => {
-  if (n === undefined) throw new Error("n is required");
-  if (fill === undefined) throw new Error("fill is required");
-
-  return Array(n).fill(Array(n).fill(fill));
+  if (n === undefined) throw new Error("n is required")
+  if (fill === undefined) throw new Error("fill is required")
+  return Array(n).fill(Array(n).fill(fill))
 }
 
 /**
@@ -109,8 +105,8 @@ const createMatrix = (n, fill) => {
  * @returns {Boolean}
  */
 const areWeCovered = (staff, day) => {
-  if (staff === undefined) throw new Error("staff is required");
-  if (day === undefined) throw new Error("day is required");
+  if (staff === undefined) throw new Error("staff is required")
+  if (day === undefined) throw new Error("day is required")
   let count = 0
   staff.forEach((employee => {
     if (employee.rota.includes(day)) {
@@ -118,7 +114,7 @@ const areWeCovered = (staff, day) => {
     }
   }))
   return count >= 3
-};
+}
 
 module.exports = {
   sumMultiples,
@@ -127,4 +123,4 @@ module.exports = {
   isItPrime,
   createMatrix,
   areWeCovered
-};
+}
